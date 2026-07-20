@@ -1,0 +1,53 @@
+# H1
+## h2
+### h3
+
+- 순서가 
+ - 없는
+ 리스트 
+
+ 1. 순서가 
+    1. 있는
+ 1. 리스트
+
+ 1. 순서가 
+ 2. 있는
+ 3. 리스트 
+
+ **굵게**
+ 
+ *기울임*
+
+~~취소선~~
+
+___
+
+> 배고프다
+>
+>점심 먹자
+
+## 링크
+[Google 메인 페이지](https://www.google.com/) 
+
+## 이미지 
+![대체 텍스트](이미지의 경로)
+
+### 로컬 이미지
+
+![싸피 로고](../image.png)
+![싸피 로고](images/image.png)
+
+
+#### 온라인 상의 이미지 
+![싸피 이미지](data:image/png;base64,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)
+
+## 코드 블록
+
+print('hello world')
+
+```python
+print('hello world')
+```
+
+## 인라인 코드
+파이썬에서 텍스트를 화면에 출력하는 함수는 `print` 함수다.
