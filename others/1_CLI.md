@@ -58,7 +58,7 @@ pwd
 저 방으로 가(Desktop/) 또는 이전 방으로 가(..) 와 같음 
 
 터미널이 운영체제마다 다름 
-ex) macOS 리눅스 유닉스 계열 운영체제- bash
+ex- macOS 리눅스 유닉스 계열 운영체제- bash
 예외적 Windows -cmd
 
 세상 모든 서버가 유닉스 기반
