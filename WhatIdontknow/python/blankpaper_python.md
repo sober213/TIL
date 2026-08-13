@@ -51,3 +51,123 @@ print(Myth.number_of_myth)
 print(Myth.description())#<- 얘도 메서드다
 
 ```
+
+### class, instance, static method
+```
+
+class Car:
+  wheels = 4
+  def __init__ (self, engine, driving_system, sound):
+    self.engine = engine
+    self.driving_system = driving_system
+    self.sound = sound #<- 생성자 메서드는 인스턴스 변수만 설정
+  @classmethod
+  def increase_wheels(cls):
+    cls.wheels += 1 #<= 클래스 메서드 정의  
+    print('법이 개정되어 차 바퀴 수가 1증가했습니다.')
+  def drive(self):
+    print(self.sound)
+    return self.engine #<=이게 인스턴스 메서드 정의, 인자 추가하기
+  def introduce(self):
+    print(...) 
+  
+  @staticmethod
+  def description():
+    return('자동차는 인간과 화물을 옮기는 기계다.') #<- 스태틱 메서드 정의
+
+```
+
+### 예외처리 
+에러났을 때 일일이 원인을 찾아 고치기보다 일부 부분을 처음부터 예외상황을 상정하고 작성해 코드 전체가 작동할 수 있게끔 한다.
+
+```
+data = {'name' : '홍길동'}
+
+try: #<-에러가 날 법한 코드 넣기
+  age = data['age'] #<- 없는 키를 호출해 KeyError 발생
+except KeyError: #<- 해당 에러가 발생했을 때 어떻게 작동(처리)할지 규정 
+  print('data에 'age' 키가 존재하지 않습니다.')
+  data['age'] = 30 
+  print(data)
+
+arr = ['안녕', '하세', '요']
+try: 
+  for i in range(4):
+    print(arr.pop())
+  print(arr) #<- 4번째 값은 존재하지 않아 IndexError 발생
+except IndexError:
+  print('더 이상 pop할 값이 존재하지 않습니다.')
+  print(arr)
+
+word = '3.15'
+try :
+  int(word) #<- 문자열을 벗겨도 정수 변환이 안 돼 ValueError 발생
+except ValueError: 
+  "정수로 변환할 수 있는 값을 입력해주세요."
+```
+
+### 상속 
+```
+class BaseModel:
+  PK = 1
+  TYPE = BASE MODEL
+  def __init__(self, title, year):
+    self.PK = BaseModel.PK
+    self.title = title
+    self.year = year
+    BaseModel.PK += 1 
+  def save(self):
+    print('데이터를 저장합니다.')
+class Novel(BaseModel): #<- 클래스 상속 
+  def __init__(self, title, year, author):
+    super().__init__(title, year) #<- 상속받은 Basemodel 생성자 한번 작동?
+    self.author = author #<- 상속받은 class의 고유 요소 설정
+
+```
+
+### 다중상속
+```
+class BaseModel:
+  PK = 1
+  TYPE = Base Model
+  def __init__(self, title, year):
+    self.PK = BaseModel.PK
+    self.title = title
+    self.year = year 
+    
+
+class Novel(BaseModel):
+  def __init__(self, title, year, author):
+  super().__init__(title, year)
+  self.author = author
+
+class Other(BaseModel):
+  def __init__(self, title, year, **kwargs):
+  super().__init__(title, year, **kwargs)
+  
+
+class ExtendedModel(Novel, Other):
+  def __init__(self, *args, extended_type, **kwargs):
+  super().__init__(*args, **kwargs)
+  extended_type.self = extended_type
+
+def display_info(self):
+  cls = type.self
+  print(f'PK: {cls.PK}, TYPE: {cls.TYPE}, Extended Type: {self.extended_type})
+
+def save(self):
+  print('데이터를 저장합니다.')
+
+
+extended_instance = ExtendedModel(title, year, author, extended_type)
+
+extended_instance.display_info()
+extended_save()
+
+
+
+
+
+
+
+```
