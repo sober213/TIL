@@ -166,8 +166,156 @@ extended_save()
 
 
 
+```
 
 
 
+### 골격 4종
+
+1. 누적
+total = 0
+for x in data:
+total += x
+return total
+
+2. 카운팅
+cnt = 0
+for x in data:
+if 조건:
+cnt += 1
+return cnt
+
+3. 탐색
+best = data[0]
+best_idx = 0
+for i, x in enumerate(data):
+if x > best:
+best = x
+best_idx = i
+return best_idx
+
+4. 필터링
+result = []
+for x in data:
+if 조건:
+result.append(x)
+return result
+
+
+
+
+#### 보충1회차 0814
+```
+total = 0 
+for x in data:
+  total += x
+return total
+
+cnt = 0
+for x in data:
+  if조건:
+    cnt += 1
+return cnt
+
+best = data[0]
+for x in data:
+  if x > best
+    best = x
+return best     #<-탐색 틀림
+
+max_score = data[0]
+max_idx = 0
+for i, x in enumerate(list[]):
+  if score < max_score:
+    max_score = score  
+  if list[idx] = max_score: 
+    max_idx.append(idx)
+return max_idx, max_score #<- 필터링 틀림
+
+best = data[0]
+best_idx = i
+for i, x in enumerate(data):
+  if x > best
+    best = x
+    best_idx = i
+return best_idx
+
+result = []
+for x in data:
+  if 조건문:
+    data_1.append(x)
+return result
+
+total = x
+for x in data:
+total += x
+return total
+
+cnt = 0
+for x in data:
+if 조건:
+cnt += 1
+return cnt
+
+best = data[0]
+best_idx = 0
+for i, x in enumerate(data):
+if x > best
+best = x
+best_idx = i
+return best_idx
+
+result = []
+for x in data:
+if 조건문:
+result.append(x)
+return result
 
 ```
+**피드백 역질문 답변**
+1. 2번에서 cnt = 0을 for문 안쪽에 쓰면 어떻게 될까요?
+   *A.* 0. B자리에 둔 이상 반복문이 돌 때마다 초기화되어 C자리로 갈 마지막 순회에서 'present'만 반영된 cnt = 0이 반환될 것이다.
+2. 그럼 "1차원 리스트에서 과락 인원 수와 최고점을 동시에 구하라" 는 문제라면 반복문이 몇 겹일까요? 그리고 "3차원 리스트(학교 > 반 > 학생)에서 과락 인원 수만 구하라" 는 몇 겹일까요?
+   *A.* 한 겹. 리스트를 한 번만 벗겨도 된다. 세 겹. 조건과 비교할 학생 데이터에 접근하려면 세 번을 써야 된다. 
+3. 지문의 "점수는 0 이상 100 이하" 가 "점수는 -100 이상 100 이하" 로 바뀌면, max_score = 0 버전은 어떤 입력에서 틀릴까요?
+직접 그 입력을 하나 만들어서 두 버전을 돌려보고 결과를 적어보세요.
+   *A.* analyze_scores([[-1, -30]])를 설정했을 때 max_score = 0은 (2, 0)을 출력,
+   max_score = classes[0][0]은 (2, -1)을 출력했다. 
+   
+
+
+### 보충 2주차 
+
+problem1. 리스트로 주어진 값에서 메뉴별 매출합계를 딕셔너리 형태로 반환할 때
+내가 모르는 것: 시작값을 설정할 때 매출합계를 각 메뉴마다 매칭시키는 법과 매출 합계를
+딕셔너리 형태로 묶을 때 기존 반복문을 어떻게 변형하는지
+딕셔너리에 값 추가: sum_category[coffee] = category_total 
+key = category? value = sum_
+
+total = 0 #total을 여러 개로 설정하면 안 됨(예시마다 변형x)
+for x in data:
+if x ==
+total +=  
+elif x == 
+elif x == 
+return total
+```
+def sum_sales_by_category:
+  sum_sales = 0
+  dict_1 = {} 
+  for category, sale in records: 
+    sum_sales += sale
+    dict_1[category] = sum_sales
+  return dict_1
+
+def sum_sales_by_category:
+  dict_1 = {}
+  sum_sales = 0
+  for category, sale in records:
+    if dict_1[category]: 
+      sum_sales += sale
+    dict_1[category] = sum_sales 
+  return dict_1
+
+```
+
