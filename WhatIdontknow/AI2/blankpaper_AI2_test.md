@@ -46,7 +46,7 @@ RMSE: 제곱한 게 너무 커서? 제곱근 적용?
 상관? 기울기 업데이트 
 #### 2 로지스틱 회귀
 분류의 경우 0~1까지의 y로 고정할 수 없음- 부적절?
-#### 3 MLE(Maximum Logistic? Estimation)
+#### 3 MLE(Maximum Likelihood Estimation)
 분류에서는 MSE대신 이걸 평가지표로 삼는다
 #### 4 은닉층?
 layer 사이의 파라미터 조정?
@@ -115,4 +115,66 @@ BEAM 바로 따라가는 게 아닌 전체적으로 돌려보면서 평균내기
 더 길거나 첫번째로 나온 대상에게 가산점을 주는 편향 있었음
 두번 해서 평균내는 식으로 보완
 
-### 3 
+### 3-1 딥러닝과 영상 모델
+
+#### 1 FCN(Fully Connected Layer)
+완전연결층: 입력-> 출력 사이서 숫자형 시퀀스로 벡터화?? 변환??
+Flatten하면서 위치정보, ???를 담을 수 없게 됨
+#### 2 CNN(Convolation???) 모델
+이미지 다루는 데 유리 - 깊이가 있는 데이터 층을 동일한 깊이의 필터로 내적을 반복,
+Feature Map을 생성. 예시- 필터와 겹친 Layer의 값을 곱한 필터의 모든 칸을 더한 뒤 
+평균값을 필터 가운데에 놓음-> 이 값들을 모아 Feature Map 형성 
+합성곱 층 여러 개, BIas 벡터를 사이에 추가해 더 풍부한 Feature Map 생성가능 
+합성곱(Convolation)층으로 구성
+#### 2-1 CNN의 기법??
+풀링(Pulling): 맥스풀링-2*2, 3*3 형태의 블럭에서 가장 큰 값만 모아 다시 Layer형성  
+스트라이더??: 일정 간격으로 필터를 건너뛰어가며 형성?
+#### 3 AlexNet
+3개 FCN, 5개 CNN층으로 이루어진 초창기 이미지 처리??모델
+input -> FCN -> Conv -> ... -> FCN?? 
+GPU가 허접해서 최대한 연산을 아끼려는 방향으로
+#### 4 VSSnet, Googlenet
+깊은 깊이와 쌓인 CNN층의 위력
+데이터 연산능력을 많이 잡아먹지만 단순하고 강력함 
+#### 5 ResNet
+Residual 잔차블럭을 도입, BottleNeck 기법을 추가하는 등의 발전
+중간에 파라미터 수정을 안 거쳐도 되면 그대로 출력층으로 보내버리기
+현재 범용적으로 사용 중
+#### 5-1 MobileNet 
+경량화, edge환경에서도 가동
+
+### 3-1 딥러닝과 영상 모델 - 2차시
+
+#### 1 CNN의 한계
+CNN은 이미지에 강점을 보이나 장기 의존성, 서로 떨어져 있지만 비슷한 값??
+등 순서나 위치가 중요한 시퀀스형 자료 처리가 어려움
+#### 2 RNN(Recurrent Neural Network)
+재귀??신경망: 중간에 hidden state를 만들어 다음으로 넘기는 식으로 시계열, 순서 등
+CNN이 다루기 어려운 시퀀스를 다룸
+Many-to-one, many-to-many, one-to-many?? 
+#### 3 LSTM(Long Term Short Model?)
+RNN의 단점(기울기 폭발, 소실)을 보완하기 위해 나옴
+gate요소로 hidden state를 조정하는 기법 (forget, cell처리, 출력???)
+hidden state가 많아질수록 순전파, 역전파 과정 중 gate가 어떤 것을 남기고
+어떤 것을 잊어야 할지 그 총량 자체가 점점 줄어 서서히 손실이 일어남
+#### 4 Attention(Vit)
+처음에 순서는 정해져 있지 않으나 굳이 선형으로 가지 않고 비선형??RELu?를 추가   
+#### 4-1 Self Attention
+위치 인코딩?? 벡터 위치를 추가??
+#### 5 Vit vs ResNet?
+Teacher & Student
+Vit가 모든 상황에서 유리한 것은 아님(ImageNet을 다룰 때 Resnet이 이기는 구간 존재) 
+
+### 3-2 이미지 파운데이션 모델
+
+#### 1 AGI를 향하여
+파운데이션 모델 Percept -> Cognition ->??
+#### 2 VLM(Vision Language Model?)
+이미지와 텍스트 동시에 이해하는 모델
+#### 2-1 LLAVA
+동시에 처리하는 강력한 모델?
+#### 3 다양한 영상 파운데이션 모델
+Sora
+#### 4 파인 튜닝
+프롬프팅 튜닝? Learning Rate를 잘 조정해야 지역최솟값에 멈춤x  
+합성 데이터의 유용성
