@@ -224,7 +224,32 @@ AI에게 RAG     == 사람에게 문서를 쥐여줌
 #### 4-1 LangGraph
 ???(준비단계)
 요즘은 Langchain 대신 이거 씀
-state - node - ???
-state는 게시판 node는 작업자 ???는 가이드라인?
+state - node - edge
+state는 게시판 node는 작업자 edge는 가이드라인?
 파이프라인(실행단계)
 인코딩?? -> chunking -> vector store -> ?? -> 디코딩??
+
+### 5. Agent 
+
+#### 1 RAG와 Agent
+RAG: 서류만 쥐어줘 읽게 함
+Agent: 도구를 줘서 행동까지 할 수 있게
+#### 2-1 Agent 4대 요소(LLM, tools, memory, Plan)
+여러 번 호출되고 도구도 쓰니 위력적인 만큼 소모값이 큼
+@tool(함수 호출 요청) toolbind - Memory(이전 내용 기억) - Judge as LLM?
+#### 2-2 ReAct(Reasoning + Action)
+workstate edge로 Reasoning + Action, 생각하고 다시 실행 순환
+자기가 낸 결과에 기반해 Observation과정을 거쳐 오류 낮춤, Agent로 돌아가는 edge
+#### 2-3 CoT(Chain of Thought)
+Direct Workstate에 reasoning 추가한 버전 
+단순한 답변에는 좋음
+#### 3 trustworthiness
+RAG는 읽기만 하니 괜찮지만 Agent는 실제 행동을 취하니 제대로 통제하지 않으면
+매우 위험 -> 유사시에 개입할 수 있게
+#### 4 가드레일
+휴먼인더루프(결정은 사람이), AI의 결정을 믿기보다 코드로 방지
+입력 가드레일(입구컷) -> tool_use -> 검증 로직 -> ReAct -> 출력 가드레일(정책)    
+#### 5 멀티 Agent
+여러 Agent를 굴리는 게 아니라 한 에이전트에 일을 따로따로 맡기는 것
+Planner - Worker/ 복합적인 일에 어울림/ 소모값이 더 커짐
+Reflection - 스스로 개선하는 방식
