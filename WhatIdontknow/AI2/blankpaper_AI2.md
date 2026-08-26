@@ -212,7 +212,7 @@ Fine Tuning은 모든 부분을 학습시킴 느리고 GPU가 좀 많이 필요�
 #### 1-5 CLIP
 softmax? 대조학습?
 
-### 4. RAG, LangChain
+### 3. RAG, LangChain
 
 #### 1 LLM
 AI에게 파인튜닝 == 사람을 가르침 
@@ -229,7 +229,7 @@ state는 게시판 node는 작업자 edge는 가이드라인?
 파이프라인(실행단계)
 인코딩?? -> chunking -> vector store -> ?? -> 디코딩??
 
-### 5. Agent 
+### 4. Agent 
 
 #### 1 RAG와 Agent
 RAG: 서류만 쥐어줘 읽게 함
@@ -245,11 +245,35 @@ Direct Workstate에 reasoning 추가한 버전
 단순한 답변에는 좋음
 #### 3 trustworthiness
 RAG는 읽기만 하니 괜찮지만 Agent는 실제 행동을 취하니 제대로 통제하지 않으면
-매우 위험 -> 유사시에 개입할 수 있게
+위험할 수 있음 -> 유사시에 개입할 수 있게
 #### 4 가드레일
 휴먼인더루프(결정은 사람이), AI의 결정을 믿기보다 코드로 방지
-입력 가드레일(입구컷) -> tool_use -> 검증 로직 -> ReAct -> 출력 가드레일(정책)    
+입력 가드레일(입구컷) -> 도구 준비 -> 검증 로직 -> ReAct -> 출력 가드레일(정책)    
 #### 5 멀티 Agent
-여러 Agent를 굴리는 게 아니라 한 에이전트에 일을 따로따로 맡기는 것
-Planner - Worker/ 복합적인 일에 어울림/ 소모값이 더 커짐
-Reflection - 스스로 개선하는 방식
+에이전트들에게 일을 따로따로 맡기는 것
+Langchain, Langraph 활용 프롬프트 설정 state -node - edge설정 
+#### 5-2 멀티 에이전트 Langgraph패턴
+Planner - Worker패턴/ 복합적인 일에 어울림/ 소모값이 더 커짐
+Reflection패턴 - 스스로 개선하는 방식(평가 후 부분충족이면 worker에게 넘김)
+Superviser패턴 - worker에게 도메인 분산해 맡겨 병렬적 처리, Superviser가 품질관리 
+
+### 5 PEFT(Parameter Efficient Fine Tuning)
+
+#### 1 Fine-Tuning
+상황에 맞춰 다시 학습시키기
+Full Fine Tuning- 데이터를 처음부터 학습시켜서 감당이 안 됨
+파라미터, 기울기, 옵티마이저 등등 여기저기서 터짐
+#### 1-2 RAG와 FineTuning
+꼭 finetuning이 좋은 것은 아님, 범용 모델을 '할 수 있게' 해주는 건
+파인튜닝이나 '알려주는' 건 필요 자료를 직접 쥐어줄수 있는 RAG 
+파인 튜닝으로 최적화시킨 뒤 RAG로 그때그때 정보 최신화해주는 느낌
+#### 2 PEFT(Parameter Efficient Fine Tuning)
+학습 파라미터를 낮춰서 자신의 환경에서도 굴릴 수 있게 하는 기법?
+#### 3 LORA(Low Rank Adaptation)
+변화량 자체는 생각보다 작음 - 두 작은 배열?? 저차원 배열 파라미터 추가(adapter)
+모델??의 1%도 안되는 수준만 학습해도 b?? 처음에 안 터지는 이유
+처음에 0으로 설정했다 천천히 올라간다 d * r r * ?
+#### 4 QLORA(Quantize ...)
+양자화 4비트 32바이트 압축해서 손실은 있으나 처리해야 할 파라미터 수가 급감
+#### 5 SQL-text???
+NLP 
