@@ -181,3 +181,11 @@ Sora
 #### 4 파인 튜닝
 프롬프팅 튜닝? Learning Rate를 잘 조정해야 지역최솟값에 멈춤x  
 합성 데이터의 유용성
+
+### 실습 1- EDA와 데이터 전처리
+
+#### 1 pandas DataFrame 다루기
+
+#### 2 matplotlib으로 그래프 그리기
+
+#### 3 데이터 분할 train/ valid/ test
