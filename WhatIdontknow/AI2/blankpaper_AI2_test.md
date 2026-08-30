@@ -182,10 +182,72 @@ Sora
 프롬프팅 튜닝? Learning Rate를 잘 조정해야 지역최솟값에 멈춤x  
 합성 데이터의 유용성
 
-### 실습 1- EDA와 데이터 전처리
+### Test_Summary
 
-#### 1 pandas DataFrame 다루기
+#### 1. AI  
+지도학습/ 비지도학습
+#### 2. 학습
+gradient (음수로)
+#### 3. CNN/ VIT
+conv1
+#### 4. 파운데이션 모델
 
-#### 2 matplotlib으로 그래프 그리기
+#### 5. RAG, 양자화
 
-#### 3 데이터 분할 train/ valid/ test
+#### 코딩실습 
+
+#### 1. Data 생성 
+load -> prompt -> generate
+#### 2. EDA
+ 
+#### 3. RAG
+load - chunking -> imbedded -> vector store -> Retriever -> context -> generate
+```
+01. for seed in seed_tasks:
+        promt = llm.invoke(seed)
+
+02. df = pd.read_csv("data.csv")
+
+03. loader = PyMuPDFLoader("lecture.pdf")
+    documents = loader.load()
+
+04. print(df.isnull().sum())
+
+05. item = json.loads(raw.content)
+
+06. chunks = splitter.chunks(documents)
+
+07. dup_count = df.duplicated().sum()
+
+08. vectorstore = Chroma.from_documents(documents=chunks, embedding=embeddings)
+
+09. required = {"instruction", "input", "response"}
+    if required.???:
+        results.append(item)
+
+10. numeric = df.col.select.dtype(inclue="number")
+
+11. retriever = vectorstore.as_retriever(Top_k = {...})
+
+12. answer = df[df(sex)[target]].mean()
+
+13. results.append(item)
+
+14. retrieved_docs = retriever.invoke(question)
+
+15. corr = df.corr(numeric_only=True)
+
+16. target_corr = sort.(ascending = False)
+
+17. context = "\n\n.join(doc.page_content for doc in retrieved_docs)
+
+18. with open("out.json", "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+
+19. female = df(???)[female]
+
+20. answer = llm.invoke(prompt)
+    print(answer.content)
+
+
+```
