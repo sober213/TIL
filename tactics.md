@@ -1,7 +1,8 @@
 ## 전략
 
-- How can I study for 10+ hours a day without getting depressed and how can I make myself get used to it?
-우울해지지 않으면서 매일 10시간 이상씩 공부하고, 그에 익숙해질 수 있는 방법.
+- How can I study for 10+ hours a day without getting depressed and how can I make myself get used to it? 
+
+  우울해지지 않으면서 매일 10시간 이상씩 공부하고, 그에 익숙해질 수 있는 방법.
 1. 할 수 없다.
 2. 시도하지 말아야 한다.
 누구도 그정도 할 수 있는 사람은 드물고, 하루에 3시간 이상 제대로 집중할 수 있는 사람은 극히 드물다.
