@@ -33,13 +33,7 @@ def counting_sort(DATA, COUNTS, k):
   for i in range(n - 1, -1, -1):
     COUNTS[i] -= 1
     TEMP[COUNTS[DATA[i]]] = DATA[i]
-
-
-
 ```
-지금 내가 뭘 모르는 거지?
-낙타의 현 위치 인덱스가 오아시스 자리 목록을 벗어났을 때 나는 오류를 어떻게 고치는지 모른다.
-낙타 위치 반복문이 break없이 끝났을 때 0을 반환하는 방법, 정확히는 맨 끝 오아시스에 낙타를 위치시킨 다음
   
 
 ### String
@@ -92,6 +86,12 @@ def finding_brute_force(t, p, k?):
 #### 3 함수 스택?
 함수도 스택에 맞춰 쓴다?
 #### 3-2 시스템 스택? 
+
+### 선택 정렬
+
+
+
+
 ```
 
 
