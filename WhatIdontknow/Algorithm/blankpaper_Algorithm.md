@@ -3,13 +3,42 @@
 ### 2차원 배열
 
 #### 1-1 행과 열
-row 와 col
-#### 1-2 행렬 배치
-
-#### 1-3 지그재그형 배열
-
-#### 1-4 열 방향으로 순회?
-
+2차원 리스트 선언(N * M)을 위해 필요한 건 행개수(N)와 열개수(M)
+i(r)는 행좌표 (행개수 순회) j(c)는 열좌표(열개수 순회) 
+#### 1-2 열 방향 순회
+```
+for j in range(M):
+  for i in range(N):
+    print(arr[i][j])
+```
+#### 1-3 지그재그형 순회
+```
+for i in range(N):
+  for j in range(M):
+    print(arr[i][j + (M - 1 - 2 * j) * (i % 2)])
+```
+#### 1-4 행렬 배치
+```
+for i in range(N):
+  for j in range(N):
+    if i < j:
+      arr[i][j], arr[j][i] = arr[j][i], arr[i][j]
+```
+#### 1-5 벡터
+하나를 기준점으로 상하좌우를 지정
+```
+for i in range(N):
+  for j in range(M):
+    s = arr[i][j]
+    for di, dj in [[0, 1], [1, 0], [0, -1], [-1, 0]]:
+      for c in range(1, k + 1)
+        ni, nj = i + di * c, j + dj * c
+        if 0 <= ni <= N and 0 <= nj <= M:
+          s += arr[ni][nj]
+    if s > max_v:
+      max_v = s
+      
+```
 
 ### 카운팅 정렬
 정수는 음수, 0형태 
@@ -87,13 +116,38 @@ def finding_brute_force(t, p, k?):
 함수도 스택에 맞춰 쓴다?
 #### 3-2 시스템 스택? 
 
-### 선택 정렬
-
-
-
-
+### 선택 정렬, 셀렉트 알고리즘
+```
+def select(arr, k):
+```
+k번째로 작은 원소를 반환하는 함수
+```
+  for i in range(0, k):
+    min_idx = i
+    for j in range(j + 1, len(arr)):
+      if arr[j] > arr[min_idx]
+        min_idx = j
+    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+  return arr[k-1]
 ```
 
+### 큐(Queue)
 
-
-```
+#### 1 FIFO
+선입선출형 자료구조, 들어온 순서대로 나간다 ex-은행대기열, 프린터 대기열
+#### 2 선형 큐
+기본적 형태, front와 rear형태 front- 마지막으로 삭제한 원소의 위치
+#### 2-1 큐 구조
+rear - 마지막으로 추가한 원소의 위치 + 1 
+만들 때는 둘 다 -1, .enque(item)로 원소 추가 시 rear한 칸 나가며 남은 자리에 추가 .dequeue(item)로 원소 삭제하며 삭제하고 남은 자리에 front들어옴 isempty(), isfull()
+#### 2-2 원형 큐
+선형 큐는 front가 한번 앞으로 나가버리면 다시 돌아가 재활용이 안 됨
+한 번 포화되면 원소를 더 추가하기 힘들어 이를 보완하기 위한 형태
+앞과 뒤를 붙여서 순환식
+#### 3 연결 큐, 우선순위 큐?
+연결 리스트를 이용해 연결한 큐? 구조?
+#### 4 BFS
+너비 우선 탐색- 큐를 사용, 마지막으로 들른 곳을 visited에 추가하며 인접점 우선탐색
+들른 곳은 들렀다고 표시하며 큐에서 제거함  
+#### 5 deque
+덱, 양옆에서 넣고 뺄 수 있는 리스트 형태의 큐(유용하다)
