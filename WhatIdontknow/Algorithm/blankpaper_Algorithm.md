@@ -65,7 +65,7 @@ def counting_sort(DATA, COUNTS, k):
 ```
   
 
-### String
+### 문자열(String)
 
 #### 1 코드체계
 문자열 등을 코드로 표현하는 방식/ 인코딩 표준화 
@@ -103,7 +103,7 @@ def finding_brute_force(t, p, k?):
 시저의 암호문(한 칸씩), 단일치환- 문자 하나에 고정된 문자열 하나 지정해 무수한 키
 
 
-### Stack 
+### 스택(Stack) 1
 
 #### 1 스택이란? 
 데이터를 저장하는 대표적 선형 자료구조(선형: 자료의 원소가 1 : 1 매칭됨, 비선형: 1 : N)
@@ -116,20 +116,23 @@ def finding_brute_force(t, p, k?):
 함수도 스택에 맞춰 쓴다?
 #### 3-2 시스템 스택? 
 
-### 선택 정렬, 셀렉트 알고리즘
-```
-def select(arr, k):
-```
-k번째로 작은 원소를 반환하는 함수
-```
-  for i in range(0, k):
-    min_idx = i
-    for j in range(j + 1, len(arr)):
-      if arr[j] > arr[min_idx]
-        min_idx = j
-    arr[i], arr[min_idx] = arr[min_idx], arr[i]
-  return arr[k-1]
-```
+### 스택(Stack) 2
+
+#### 1 중위/ 후위 표기법
+중위: 우리가 아는 그 연산자 쓰는 법 
+후위: 연산자를 대응되는 괄호 우측 밖으로, 괄호 밖이면 연산대상 우측으로 
+stack 형식 사용함?
+#### 2 후위 표기법을 사용한 알고리즘?
+연산할 때?
+#### 3 미로 찾기?
+재수없으면 모든 곳을 돌 수 있음
+pruning - 최단거리보다 멀면 해당 가지는 거르기 
+#### 4 DFS(depth f?? search)
+깊이 우선 탐색: 현재 위치한 노드에서 더 깊은 곳으로 들어갔다 나오기?
+탐색 방식 특성상 stack 사용
+#### 5 순열?
+일반적인 순열과 스택 개념을 사용한 순열??
+
 
 ### 큐(Queue)
 
@@ -165,3 +168,18 @@ rear - 마지막으로 추가한 원소의 위치 + 1
 
 PS분야 (problem solving)
 개발자의 기초체력?
+
+### 선택 정렬, 셀렉트 알고리즘
+```
+def select(arr, k):
+```
+k번째로 작은 원소를 반환하는 함수
+```
+  for i in range(0, k):
+    min_idx = i
+    for j in range(j + 1, len(arr)):
+      if arr[j] > arr[min_idx]
+        min_idx = j
+    arr[i], arr[min_idx] = arr[min_idx], arr[i]
+  return arr[k-1]
+```
