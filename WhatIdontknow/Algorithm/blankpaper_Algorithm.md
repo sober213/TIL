@@ -183,3 +183,5 @@ k번째로 작은 원소를 반환하는 함수
     arr[i], arr[min_idx] = arr[min_idx], arr[i]
   return arr[k-1]
 ```
+
+```
