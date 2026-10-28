@@ -24,18 +24,34 @@ Views(=Controllers)은 전체적 동작 담당, Templates(=Views)는 요청 + �
 
 #### 1 DTL
 파이썬과 앱?을 분리해 따로 다룰 수 있게 하는 언어 형식? html
-form 은 편리하게 클라이언트의 입력값? 요청을 받아 대응하는 형식
+form 은 편리하게 클라이언트의 입력값 요청을 받아 대응
+서버가 url로 요청을 받아 해당 url과 연결된 앱을 호출, html render 등과 조합해 대응되는 페이지 반환
 #### 2 base template
-언제든지 재정의할 수 있는 양식을 정의하는 방식?
-상속? 특정 양식을 여러 html에 적용할 수 있게 자손에서 extends로 가져옴
-block, endblock으로 재정의할 수 있는 부분 구분  
+언제든지 재정의할 수 있는 양식을 정의하는 방식? base template으로 여러 번 사용할 템플릿 형태 작성
+template 상속 특정 양식을 여러 html에 적용할 수 있게 자손이 extends로 전달받음 
+block, endblock으로 재정의할 수 있는 부분 구분, href로 해당 base 사용한다 강조?  
 #### 3 tag 
 %% {{}}등으로 html 상 변수를 파이썬 비스무리하게 조건, 반복, 제어를 가능케 하는 기능
-형태는 파이썬 문법과 같으나 실제로는 표기만 그렇다?
-급양 메뉴판 구현? if, elif, for 등
+형태는 파이썬 문법과 같으나 실제로는 표기만 그렇고 논리 구조 명시 목적이 강함
+급양 메뉴판 구현? if, elif, for 등 %{tag}%
 #### 4 throw & catch
-.get 메서드 사용? input 입력값이 딕셔너리 형태로 모인 곳에서 키 대응값을 가져온다
-url상 움직임? FakeNaver 
+.get 메서드 사용? messages input 입력값이 딕셔너리 형태로 모인 곳에서 키 대응값을 가져온다
+url variable -> 변수/ url filter -> 변수 수정, num, str등 5가지 형태 
+url ??? -> 키워드   
 #### 5 Urls
 프로젝트상 url이 하나만 있을 때 대응하기 어려운 때가 있다 
 앱마다 url을 따로 만들어서 include로 연결?
+Url, render, views 호출 
+
+### Django Model
+
+#### 1 class Model.models
+클래스로 모델과 데이터베이스를 연결해 생 코딩 대신 자동적으로 python 상 데이터 정리와 적용을
+가능하게끔 하는 Django 프레임워크
+#### 2 Field, ???
+컬럼으로 데이터를 나타낸다? max_length, blank=False 등의 ??로 틀을 잡을 수 있음 
+#### 3 migrate
+models.py makemigrations? 모델이나 데이터에 변경사항이 있을 때 반영하기 위해 세팅, migrate로 실제 적용 
+#### 4 crud
+create read u?? delete
+#### 5 SQLite
