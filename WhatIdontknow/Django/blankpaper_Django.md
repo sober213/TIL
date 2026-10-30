@@ -55,3 +55,22 @@ models.py makemigrations? 모델이나 데이터에 변경사항이 있을 때 �
 #### 4 crud
 create read u?? delete
 #### 5 SQLite
+
+### Django Orm
+
+#### 1 Orm(Objects relative mapping?)
+파이썬 객체와 SQLquery문 사이의 통역사  
+#### 2 Query
+데이터베이스에 원하는 데이터를 요청하는 명령문, 데이터베이스는 SQLite 형식만 알아들을 수 있음
+직접 query문을 일일히 작성해 데이터를 다루는 대신 Django의 Orm프레임워크를 거쳐 파이썬의
+객체 지향 프로그래밍으로 추상적 관점에서 데이터베이스를 두루 다룰 수 있음
+#### 3 메서드
+class를 만들어 자료를 추가? 3가지 방법 1. 클래스 생성 2. save()로 자료 추가 3. create()메서드로 생성과 등록 동시에  
+filter(조건?), get(단일), all(모두), delete(삭제?), startswith? title() 등 메서드를 활용해 데이터를 직관적으로 
+생성, 조회하거나 수정 및 삭제가 가능   
+#### 4 CRUD
+데이터 다룰 때 주요한 기능 Create/ Read/ Update/ Delete
+각각 생성, 조회, 수정, 삭제 queryset을 가져오거나 그 중에서 조건을 걸어 특정 자료를 가져옴 
+#### 5 Orm을 쓰는 이유?
+데이터베이스를 다룰 때 간편하게 자동화되기 때문??
+
