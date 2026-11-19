@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>산불 고위험 지역 예측 Agent</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header><h1>산불 고위험 지역 예측 Agent</h1><p>산불위험예보 · 과거 발생 기록 · 기상 관측자료 통합 조회</p></header>
+<nav><button class="tab active" data-view="chat">대화 분석</button><button class="tab" data-view="plans">계획 관리</button><button class="tab" data-view="logs">실행 로그</button></nav>
+<main>
+<section id="chat" class="view active"><div class="panel"><h2>산불 위험 분석 요청</h2><textarea id="message" rows="3" placeholder="예: 강원도 산불 위험이 높은 지역 5곳을 알려줘. 과거 산불 기록과 기상도 함께 확인해줘."></textarea><div class="actions"><button id="send">분석 요청</button><span id="status" role="status"></span></div></div><div id="answer" class="panel hidden"></div><div id="execution" class="panel hidden"></div></section>
+<section id="plans" class="view"><div class="panel"><h2>분석 계획 저장</h2><form id="plan-form"><input name="title" required placeholder="계획 제목"><input name="region" placeholder="지역"><label>날짜 <input name="plan_date" type="date" required></label><label>시작 <input name="start_time" type="time"></label><label>종료 <input name="end_time" type="time"></label><button>계획 저장</button></form></div><div id="plan-list" class="panel"></div></section>
+<section id="logs" class="view"><div class="panel"><h2>실행 세션</h2><button id="refresh-logs">새로고침</button><div id="log-list"></div><pre id="log-detail"></pre></div></section>
+</main><footer>참고: 산불위험예보 지수는 발생 확률이 아닙니다. 현장 판단과 공식 안전 안내를 우선하세요.</footer><script src="/static/app.js"></script></body></html>
