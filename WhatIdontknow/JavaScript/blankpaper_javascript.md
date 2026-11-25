@@ -36,6 +36,21 @@ var은 자제 -> 호이스팅(스코프 맨 꼭대기로 머리끄댕이 끌려�
 
 ### JavaScript Basic Syntax 2
 
-#### 1
-#### 2
-##
+#### 1 객체
+Object: 키와 값으로 구성된 collections 자료형 모음집? 
+#### 2 JSON
+JavaScripts Objective Notation 문자열 형식으로 대부분의 상황에서 안정적으로 데이터 이동 가능?
+.stringfy 메서드로 객체 문자열 형태로 변환, .parse? 메서드로 문자열을 원래 형태로 되돌릴 수 있음?
+#### 3 Array & 메서드 체이닝?
+???의 반환값을 받아줄 메서드를 뒤쪽에 연달아 쓸 수 있음 
+??? helping method? some - 순회하다 ??면 false 반환?, every - 전부 돌다 오류?발생 시 멈춤 아니면 다 돌고 나서 반환, 심화 reduce?/ push, pop으로 배열의 끝에 요소 추가 & 삭제 가능/ shift, unshift로 배열 시작점에 요소 추가 & 삭제 
+#### 4 콜백 함수
+매개변수에 들어가 넘어가는 함수 (재귀?) 구조가 단순해 화살표 함수를 쓰는 게 유효
+비동기 코드에 쓰임?
+#### 5 forEach & map
+추후 배우는 Vue와 ??에서 Django처럼 각각의 코드를 일일이 건드려야 되는 경우보다 배열에 일괄적으로 
+규칙을 적용하는 방식을 선호, 배열을 순회하며 함수를 적용?하는 forEach가 유용하게 쓰임
+순회하고 ??하는 forEach와 순회하되 규칙에 따라 변형해 반환하는 map 
+
+### Controlling Event
+
